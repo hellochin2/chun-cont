@@ -1,0 +1,58 @@
+Uninstall old versions  of Docker
+--------------------------------
+### Older versions of Docker were called docker or docker-engine. If these are installed, uninstall them:
+
+sudo apt-get remove docker docker-engine docker.io
+
+### This script is meant for quick & easy install via:
+   $ curl -fsSL get.docker.com -o get-docker.sh
+   $ sh get-docker.sh
+### If you would like to use Docker as a non-root user, you should now consider adding your user to the "docker" group with something like:
+   $  sudo usermod -aG docker linuxchun
+
+Check If Docker is running :
+$ sudo docker version
+
+two more tools needed:
+docker machine  and docker compose
+
+Docker Machine: 
+can get from git hub:: https://github.com/docker/machine/releases
+$ base=https://github.com/docker/machine/releases/download/v0.14.0 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+  sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+
+to verify if docker-machine installed
+$ docker-machine version
+
+Docker Compose: 
+can get from git hub:: https://github.com/docker/compose/releases
+
+$ curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+this will give permission error. >>> so provide root permission and run the same command again.
+$ sudo -i
+$ curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+  
+once installation done ... exit from root
+$ exit
+cloning the repository: 
+
+>> Install git :: 
+	$ sudo apt install git
+	to verify git installed or not
+	$ git --version
+
+
+login to git hub account
+: rakaray.book@gmail.com o0.....
+https://github.com/hellochin2/STRREP.git
+
+clone GIT
+$ git clone https://github.com/hellochin2/STRREP.git
+
+
+
+

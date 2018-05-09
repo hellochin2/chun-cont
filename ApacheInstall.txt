@@ -1,0 +1,73 @@
+After you have Ubuntu up and running, you’ll want to make sure that everything on your system is current. To do that, open the terminal and type in the following commands:
+
+sudo apt-get update
+
+The result should look something like the screenshot below. Note that this and the following screenshots show the end of each command as it is completed, and so do not necessarily illustrate the entire process.
+
+sudo apt-get upgrade
+
+Note: You will have to confirm “yes” when running the “upgrade” command.
+
+The first command is going to update the list of packages and their versions on your machine without going through the process of actually installing them. The second command installs the packages. For this reason, you should always run the update command first and then upgrade.
+Installing Apache
+
+The very heart of our LAMP stack is a piece of server software called Apache. A web server’s job is to process HTTP requests, which are used to send information across the Internet.
+
+Why are we choosing Apache? Because it’s the world’s most popular web server software, it’s extremely stable, it’s well-supported, and it’s completely open source, which means you don’t have to pay anything for it.
+
+To install Apache, type the following command into the Terminal:
+
+sudo apt-get install apache2
+
+Installing Dependencies
+
+There’s an additional step you’ll need to take to ensure that Apache and Python play together nicely: installing a tool called mod_wsgi. This is free tool for serving Python applications from Apache. You will also be installing a helper package called python-setuptools.
+
+To install the tool and helper package, type the following command into the Terminal:
+
+sudo apt-get install python-setuptools libapache2-mod-wsgi
+You’ll need to restart your Apache server for mod_wsgi to load:
+
+sudo service apache2 restart
+
+Choosing Between MySQL and PostgreSQL
+
+Next, you’ll want to install your database system. This can be a point of confusion for many people, because there are so many options out there, but I’m going to cover two of the most popular: MySQL and PostgreSQL. Unsure which to choose? Let’s take a look at each.
+
+MySQL is the more common of the two. It’s relatively easy to install and get working. It’s also very well-supported by third-party tools, as well as by most web hosts. And it’s an extremely fast tool due to the fact that it doesn’t implement the full SQL standard, or as many data types as other solutions (in particular: PostgreSQL). This makes MySQL a great tool to use when writing simple applications that run fast and are easy to set up, but that don’t need to do anything too complex.
+
+PostgreSQL, on the other hand, is a SQL-standards-compliant tool that supports many more data types than MySQL. It’s extremely powerful, and it’s designed to power complex applications. You can achieve much more in PostgreSQL than you can using MySQL. However, PostgreSQL is a bit more complicated to set up, and it’s comparatively less performant for simple operations due to its large feature set.
+
+If you would like to see a full comparison between MySQL and PostgreSQL, DigitalOcean has written a wonderfully detailed article that should help in making the choice.
+
+If you are a beginner and don’t actually understand the differences that have been outlined, just choose either one and play with it. The best way to learn which tools you do and don’t like is to try them out.
+Installing MySQL
+
+To install MySQL, type the following into the Terminal:
+
+sudo apt-get install mysql-server
+
+During the process of installing MySQL, you will be prompted to set a root password. This is the password you’ll use for the MySQL install. You can choose to set it now, or you can do so later, within the MySQL shell.
+After MySQL has finished installing, it starts automatically. To log into your server, use the following command (you will be prompted for your root password):
+
+mysql -u root -p
+
+From there, you can start to play with MySQL and set up new databases and users.
+Installing PostgreSQL
+
+To install PostgreSQL, type the following command into the Terminal:
+
+sudo apt-get install postgresql
+To log into your server, use the following command (you will prompted for your user password):
+
+sudo -i -u postgres
+After logging into your PostgreSQL server, you can start to set up new databases and roles.
+Installing Python
+
+The last step is installing Python. Since Ubuntu is our Linux distribution of choice, we have the luxury of having Python automatically installed for us. If you are curious about what version is currently installed, simply type this command into the Terminal:
+
+python
+The version info will be returned. Other than that, your Python installation should be good to go.
+The Finish Line
+
+Congrats! Just like that, you’ve installed an Ubuntu LAMP server. From here, you can start to play with Python, you can see how both MySQL and PostgreSQL store and retrieve data—and you can begin building your very own web applications.
