@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+// this is a demo project
 namespace aspnet4_sample.Controllers
 {
+//Home controller class
     public class HomeController : Controller
     {
         public ActionResult Index()
